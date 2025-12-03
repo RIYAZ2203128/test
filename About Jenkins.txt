@@ -1,0 +1,65 @@
+About Jenkins
+Jenkins is an open‑source automation server used to automate building, testing, and deploying software as part of CI/CD pipelines. It integrates with tools like Git, Maven, Docker, and Kubernetes to run jobs automatically whenever code changes.[1][2][3][4]
+
+## What Jenkins does
+
+- Automates repetitive tasks such as compile, test, package, and deploy.[3][1]
+- Works as a central CI/CD server that listens to code changes and triggers pipelines.[5][1]
+- Supports hundreds of plugins to connect with SCMs (Git, GitHub), build tools (Maven, Gradle), and cloud platforms.[6][4]
+
+## Step 1: Install Jenkins
+
+- Ensure Java (11 or 17) is installed, then download Jenkins (war, package, or Docker image) from the official site.[4][7]
+- Run Jenkins (for example, war file with `java -jar jenkins.war --httpPort=8080`) and open http://localhost:8080 to finish setup and unlock Jenkins.[4]
+
+## Step 2: Basic configuration
+
+- Install suggested plugins and create the first admin user during the setup wizard.[7][4]
+- Configure global tools (JDK, Git, Maven/Gradle) under “Manage Jenkins → Global Tool Configuration”.[8][7]
+
+## Step 3: Create a Freestyle job
+
+- From the dashboard click “New Item → Freestyle project”, give a name, and save.[9][8]
+- In the job, set:  
+  - Source Code Management: Git repo URL and credentials.  
+  - Build Triggers: e.g., Poll SCM or GitHub webhook.  
+  - Build Steps: commands like Maven/Gradle or shell/batch scripts.[8]
+
+## Step 4: Run and check builds
+
+- Click “Build Now” to run; watch progress in “Build History” and open “Console Output” for logs.[9][8]
+- Configure post‑build actions such as archiving artifacts, publishing test reports, or sending notifications (email, Slack, etc.).[8]
+
+## Step 5: Jenkins Pipeline basics
+
+- A pipeline is “CI/CD as code” written in a Jenkinsfile using declarative or scripted syntax.[10][4]
+- Typical stages in a pipeline:  
+  - Checkout: pull latest code from Git.  
+  - Build: compile/package and produce artifacts.  
+  - Test: run unit/integration tests.  
+  - Deploy: push artifacts to servers, containers, or Kubernetes.[10][5]
+
+## Step 6: Create a Pipeline job
+
+- In Jenkins, click “New Item → Pipeline”, name it, and choose Pipeline type.[3][4]
+- Under “Pipeline”, either:  
+  - Paste pipeline script directly in the UI, or  
+  - Point to a Jenkinsfile stored in the Git repository (recommended for real projects).[5][4]
+
+## Step 7: Security and plugins
+
+- Use “Manage Jenkins → Plugins” to install integrations like GitHub, Docker, Kubernetes, and notification plugins.[6][7]
+- Configure security: users, roles, and credentials (SSH keys, tokens, passwords) under “Manage Jenkins → Security” and “Credentials”.[7][4]
+
+If you want, the next step can be a very small Jenkinsfile example with build–test–deploy stages suitable for a Java or Node.js project.
+
+[1](https://codefresh.io/learn/jenkins/)
+[2](https://www.geeksforgeeks.org/devops/what-is-jenkins/)
+[3](https://spacelift.io/blog/what-is-jenkins)
+[4](https://codefresh.io/learn/jenkins/6-step-jenkins-tutorial-for-beginners/)
+[5](https://codefresh.io/learn/jenkins/ci-cd-with-jenkins-in-3-steps/)
+[6](https://www.jenkins.io/doc/tutorials/)
+[7](https://devopscube.com/jenkins-2-tutorials-getting-started-guide/)
+[8](https://www.browserstack.com/guide/build-jobs-in-jenkins)
+[9](https://www.theserverside.com/tutorial/Need-a-CI-tool-Heres-a-Jenkins-tutorial-for-beginners)
+[10](https://www.geeksforgeeks.org/devops/understanding-jenkins-ci-cd-pipeline-and-its-stages/) 
